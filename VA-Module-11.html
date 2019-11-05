@@ -1,0 +1,20 @@
+<h1 id="visual-analytics-module-11---edward-r.-tufte">Visual Analytics Module 11 - Edward R. Tufte</h1>
+<pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span>geyser$waiting
+y =<span class="st"> </span>geyser$duration
+
+<span class="kw">plot</span>(x, y, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">cex=</span><span class="fl">0.8</span>,
+     <span class="dt">xlab=</span><span class="st">&quot;Time till next eruption (min)&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Duration (sec)&quot;</span>, 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="kw">min</span>(x)/<span class="fl">1.1</span>, <span class="kw">max</span>(x)), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="kw">min</span>(y)/<span class="fl">1.5</span>, <span class="kw">max</span>(y)))
+<span class="kw">axis</span>(<span class="dv">1</span>, <span class="dt">tick=</span>F)
+<span class="kw">axis</span>(<span class="dv">2</span>, <span class="dt">tick=</span>F, <span class="dt">las=</span><span class="dv">2</span>)</code></pre>
+<div class="figure">
+<img src="VA-Module-11_files/figure-markdown_github/unnamed-chunk-1-1.png" />
+</div>
+<p>First I have created a marginal histogram scatterplot using the default dataset 'geyser' in R. This plot compares the time of each geyser's next eruption to the duration of the eruption itself. This graph is not the most specific however it does a good job at showing a general distribution for each of the geysers and where most of the data lies.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(wt, mpg)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_rug</span>() +<span class="st"> </span><span class="kw">theme_tufte</span>(<span class="dt">ticks=</span>F) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Car weight (lb/1000)&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Miles per gallon of fuel&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span>-<span class="fl">0.5</span>), <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust=</span><span class="dv">1</span>))</code></pre>
+<div class="figure">
+<img src="VA-Module-11_files/figure-markdown_github/unnamed-chunk-2-1.png" />
+</div>
+<p>The next graph I have created is a dot-dash plot comparing the amount of mpg each car got relative to its weight. I like this graph personally because it does a good job at showing the volume at specific integers as well as how dense a specific area of the distribution is.</p>
